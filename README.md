@@ -1,6 +1,6 @@
 # face_detect
 
-A new Flutter project.
+Google ML KIT Face Detection
 
 ## Getting Started
 
