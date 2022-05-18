@@ -1,6 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_ml_kit/google_ml_kit.dart';
 
 class CameraApp extends StatefulWidget {
   @override
@@ -12,13 +13,16 @@ class _CameraAppState extends State<CameraApp> with WidgetsBindingObserver {
   List<CameraDescription>? cameras;
   bool _isCameraInitialized = false;
   // bool _isCameraPermissionGranted = false;
-  bool _isRearCameraSelected = true;
+  bool _isRearCameraSelected = false;
+  FaceDetector? faceDetector;
+  Size? size;
+  List<Face>? faceList;
   @override
   void initState() {
     // SystemChrome.setEnabledSystemUIOverlays([]);
     super.initState();
     _caminit().then((_) {
-      onNewCameraSelected(cameras![0]);
+      onNewCameraSelected(cameras![1]);
     });
   }
 
